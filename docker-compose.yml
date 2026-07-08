@@ -1,0 +1,25 @@
+services:
+  fizz:
+    build: ./fizz
+    ports:
+      - "8001:8001"
+  buzz:
+    build: ./buzz
+    ports:
+      - "8002:8002"
+  concat:
+    build: ./concat
+    ports:
+      - "8003:8003"
+  main:
+    build: ./main
+    ports:
+      - "8000:8000"
+    environment:
+      - FIZZ_URL=http://fizz:8001
+      - BUZZ_URL=http://buzz:8002
+      - CONCAT_URL=http://concat:8003
+    depends_on:
+      - fizz
+      - buzz
+      - concat
