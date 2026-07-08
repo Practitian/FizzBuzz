@@ -44,19 +44,19 @@ pip install fastapi "uvicorn[standard]" httpx pydantic
 fizz/buzz/concat, потом main):
 
 ```bash
-# терминал 1 — fizz
+# fizz
 cd fizz
 uvicorn main:app --reload --port 8001
 
-# терминал 2 — buzz
+# buzz
 cd buzz
 uvicorn main:app --reload --port 8002
 
-# терминал 3 — concat
+# concat
 cd concat
 uvicorn main:app --reload --port 8003
 
-# терминал 4 — main (последним)
+# main (последним)
 cd main
 uvicorn main:app --reload --port 8000
 ```
