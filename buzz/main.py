@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-app = FastAPI(title="buzz-microservice")
+app = FastAPI(title="Buzz Microservice")
 
 @app.get("/buzz")
 def buzz(value: int):
