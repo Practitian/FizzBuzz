@@ -1,7 +1,7 @@
 # FizzBuzz Microservices
 
-Система из четырёх независимых микросервисов на FastAPI, совместно
-решающих задачу FizzBuzz. Сервисы общаются друг с другом по HTTP.
+Система из четырёх микросервисов на FastAPI, совместно
+решающих задачу FizzBuzz. Сервисы общаются друг с другом по протоколу HTTP.
 
 Пользователь отправляет число в сервис `main`, тот опрашивает `fizz` и
 `buzz`, передаёт их результаты в `concat` и возвращает итог.
@@ -40,7 +40,7 @@ source .venv/bin/activate
 pip install fastapi "uvicorn[standard]" httpx pydantic
 ```
 
-Затем в каждом терминале запустить свой сервис (порядок: сначала
+Затем в каждом терминале запустить свой сервис (сначала
 fizz/buzz/concat, потом main):
 
 ```bash
@@ -56,14 +56,14 @@ uvicorn main:app --reload --port 8002
 cd concat
 uvicorn main:app --reload --port 8003
 
-# терминал 4 — main (запускать последним)
+# терминал 4 — main (последним)
 cd main
 uvicorn main:app --reload --port 8000
 ```
 
 ### Способ 2. Docker
 
-Из корня проекта:
+Из корневой папки:
 
 ```bash
 docker compose up --build
@@ -79,8 +79,6 @@ docker compose up --build
 ---
 ## Примеры запросов
 
-Основной запрос пользователя:
-
 ```bash
 curl -X POST http://localhost:8000/fizzbuzz -H "Content-Type: application/json" -d "{\"value\": 15}"
 # {"result": "fizzbuzz"}
@@ -95,7 +93,7 @@ curl -X POST http://localhost:8000/fizzbuzz -H "Content-Type: application/json" 
 # {"result": "7"}
 ```
 
-Проверка состояния системы:
+Проверка состояния:
 
 ```bash
 curl http://localhost:8000/health
