@@ -1,2 +1,7 @@
 ﻿__pycache__/
 *.pyc
+.venv/
+venv/
+env/
+.env
+fizz_(test_ne_andrei)/
