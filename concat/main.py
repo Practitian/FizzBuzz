@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-app = FastAPI(title="concat-microservice")
+app = FastAPI(title="Concat Microservice")
 
 @app.get("/concat")
 def concat(lhs: str = "", rhs: str = ""):
