@@ -96,7 +96,6 @@ curl http://localhost:8000/health
 # {"status": "ok", "dependencies": {"fizz": "up", "buzz": "up", "concat": "up"}}
 ```
 
----
 ## Кто какую часть реализовал
 
 - Андрей - сервис fizz
